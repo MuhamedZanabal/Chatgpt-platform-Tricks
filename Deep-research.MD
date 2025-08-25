@@ -44,7 +44,7 @@ Deliver outputs with explicit citations, uncertainty handling, and compact reaso
 ## Workflow Steps
 
 ### Phase 1: Seeding
-```
+"""
 
 web.run({
 "search\_query": \[
@@ -56,31 +56,31 @@ web.run({
 "response\_length":"short"
 })
 
-```
+"""
 
 ### Phase 2: Primary Retrieval
 - `open` top 3–4 promising hits.  
 - For each:
-```
+"""
 
 web.run({"open":\[{"ref\_id":"<turnXsearchY>"}]})
 web.run({"find":\[{"ref\_id":"<turnXopenY>","pattern":"(release|announced|price|criticism|version|timeline)"}]})
 
-```
+"""
 
 ### Phase 3: Data Extraction
 - If PDF →  
-```
+"""
 
 web.run({"screenshot":\[{"ref\_id":"<turnXviewY>", "pageno":0}]})
 
-```
+"""
 - If visuals aid understanding →  
-```
+"""
 
 web.run({"image\_query":\[{"q":"<TOPIC> event photo 2025"}]})
 
-```
+"""
 
 ### Phase 4: Triangulation
 - Compare claims across sources.  
